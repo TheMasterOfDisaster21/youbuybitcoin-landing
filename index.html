@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouBuyBitcoin.com — Coming Soon | The Front Door to Bitcoin</title>
+    <meta name="description" content="YouBuyBitcoin.com — free Bitcoin education, non-custodial swaps, and 250+ verified Bitcoin services. No cookies. No ads. No VC. Built for 50 years. Launching soon.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23121212'/><circle cx='32' cy='32' r='28' fill='%23F7931A'/><text x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='36' fill='white'>&#x20BF;</text></svg>">
+    <meta property="og:title" content="YouBuyBitcoin.com — Coming Soon">
+    <meta property="og:description" content="Free Bitcoin education. Non-custodial swaps. 250+ verified services. No cookies. No ads. No VC. Built for 50 years.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youbuybitcoin.com/">
+    <meta property="og:site_name" content="YouBuyBitcoin">
+    <meta property="og:image" content="https://youbuybitcoin.com/img/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@YouBuyBitcoin">
+    <meta name="twitter:title" content="YouBuyBitcoin.com — Coming Soon">
+    <meta name="twitter:description" content="Free Bitcoin education. Non-custodial swaps. 250+ verified services. No VC. Built for 50 years.">
+    <meta name="twitter:image" content="https://youbuybitcoin.com/img/twitter-banner.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --btc-orange: #F7931A;
+            --btc-orange-dark: #D97D0E;
+            --btc-orange-light: #FFB84D;
+            --bg-primary: #0d0d0d;
+            --bg-card: #111111;
+            --bg-border: #1f1f1f;
+            --bg-border-light: #2a2a2a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b8b8b8;
+            --text-muted: #888;
+            --text-dim: #7a7a7a;
+            --accent-green: #00c853;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+        }
+
+        html {
+            font-size: clamp(13px, calc(18.5px - 0.25vw), 16px);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', 'IBM Plex Mono', 'Courier New', monospace;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.008) 2px,
+                rgba(255,255,255,0.008) 4px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container--narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--bg-border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .heading-xl {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--btc-orange);
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        .heading-lg {
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 0.4rem;
+        }
+
+        a {
+            color: var(--btc-orange);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--btc-orange-light);
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--btc-orange);
+            outline-offset: 2px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2.5rem 0 2rem;
+            border-bottom: 1px solid var(--bg-border);
+        }
+
+        .hero-content {
+            animation: heroFadeIn 1.2s ease-out forwards;
+        }
+
+        .logo-svg {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 0.75rem;
+            animation: logoPulse 4s ease-in-out infinite;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .coming-soon {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .cursor::after {
+            content: '|';
+            color: var(--btc-orange);
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.25rem 0;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .trust-bar span {
+            padding: 0 0.6rem;
+        }
+
+        .trust-dot {
+            color: var(--bg-border-light);
+        }
+
+        /* ── HIGHLIGHT BOX ── */
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-left: 3px solid var(--btc-orange);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.6rem;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box em {
+            color: var(--text-primary);
+            font-style: normal;
+        }
+
+        .timestamp {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--btc-orange);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── PILLARS (3-col) ── */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .pillar {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-top: 2px solid var(--btc-orange);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+        }
+
+        .pillar-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--btc-orange);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── FOUNDER NOTE ── */
+        .founder-note {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-left: 3px solid var(--btc-orange);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            line-height: 1.8;
+        }
+
+        .founder-note p {
+            margin-bottom: 0.6rem;
+        }
+
+        .founder-note p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .signature {
+            color: var(--btc-orange);
+            font-weight: 600;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+
+        /* ── TERMINAL DISPLAY ── */
+        .terminal {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .terminal-line {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.3rem 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(31, 31, 31, 0.5);
+            align-items: baseline;
+        }
+
+        .terminal-line:last-child {
+            border-bottom: none;
+        }
+
+        .terminal-prompt {
+            color: var(--accent-green);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .terminal-key {
+            color: var(--text-primary);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .terminal-value {
+            color: var(--btc-orange);
+            font-weight: 700;
+        }
+
+        .terminal-desc {
+            color: var(--text-dim);
+            font-size: 0.78rem;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        /* ── FOUR FREEDOMS ── */
+        .freedoms {
+            max-width: 700px;
+            margin: 1.25rem auto 0;
+        }
+
+        .freedom {
+            display: flex;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--bg-border);
+            align-items: baseline;
+        }
+
+        .freedom:last-child {
+            border-bottom: none;
+        }
+
+        .freedom-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--btc-orange);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 2rem;
+        }
+
+        .freedom-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .freedom-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .cc-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--bg-border-light);
+            border-radius: var(--radius-md);
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            letter-spacing: 0.03em;
+        }
+
+        /* ── QUOTE (in footer) ── */
+        .quote-text {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 0.35rem;
+        }
+
+        .quote-sub {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--bg-border);
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-row a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-line {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .footer-line .orange {
+            color: var(--btc-orange);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+            50% { filter: drop-shadow(0 0 10px rgba(247, 147, 26, 0.3)); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE: 768px ── */
+        @media (max-width: 768px) {
+            section { padding: 1.5rem 0; }
+            .hero { padding: 2rem 0 1.5rem; }
+            .pillars { grid-template-columns: 1fr; }
+            .contact-row { flex-direction: column; align-items: center; gap: 0.5rem; }
+            .terminal-desc { display: none; }
+            .trust-bar { gap: 0.25rem; }
+        }
+
+        /* ── RESPONSIVE: 480px ── */
+        @media (max-width: 480px) {
+            .container, .container--narrow { padding: 0 16px; }
+            section { padding: 1.25rem 0; }
+            .hero { padding: 1.5rem 0 1.25rem; }
+            .logo-svg { width: 48px; height: 48px; }
+            .highlight-box, .founder-note { padding: 1rem; }
+            .terminal { padding: 0.75rem 1rem; }
+            .pillar { padding: 1rem; }
+            .pillar-number { font-size: 1.75rem; }
+            .freedom { gap: 0.75rem; }
+            .freedom-number { font-size: 1.25rem; width: 1.75rem; }
+            .trust-bar { font-size: 0.72rem; }
+            .trust-bar span { padding: 0 0.35rem; }
+        }
+
+        /* ── REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .hero-content { animation: none; }
+            .logo-svg { animation: none; }
+            .cursor::after { animation: none; }
+        }
+
+        /* ── NOSCRIPT FALLBACK ── */
+        noscript .reveal { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+    <main>
+
+        <!-- ═══ 1. HERO ═══ -->
+        <section class="hero">
+            <div class="container hero-content">
+                <svg class="logo-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YouBuyBitcoin logo">
+                    <circle cx="32" cy="32" r="32" fill="#121212"/>
+                    <circle cx="32" cy="32" r="28" fill="#F7931A"/>
+                    <text x="32" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#FFFFFF">&#x20BF;</text>
+                </svg>
+                <h1 class="heading-xl">You Buy Bitcoin</h1>
+                <p class="hero-tagline">The Front Door to Bitcoin.</p>
+                <p class="coming-soon"><span class="cursor">Coming soon</span></p>
+                <div class="trust-bar">
+                    <span>Free forever</span><span class="trust-dot">&middot;</span>
+                    <span>No VC</span><span class="trust-dot">&middot;</span>
+                    <span>No cookies</span><span class="trust-dot">&middot;</span>
+                    <span>No ads</span><span class="trust-dot">&middot;</span>
+                    <span>Since 2017</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ 2. THE STORY ═══ -->
+        <section>
+            <div class="container--narrow">
+                <div class="section-header reveal">
+                    <h2 class="heading-lg">The Story</h2>
+                </div>
+                <div class="highlight-box reveal">
+                    <p><em>YouBuyBitcoin.com</em> was registered in <em>October 2017</em>. Bitcoin was around $5,000. Then came the crash. 80% down. Everyone said crypto was dead.</p>
+                    <p>The domain was <em>never sold</em>. <em>Never parked</em>. <em>Never squatted on</em>. It was held through the bear market, through the doubt, through the years.</p>
+                    <p>I could have slapped an affiliate link on it in 2018 and made money. But I didn't want to be another crypto content mill. I wanted to build something that would outlast me.</p>
+                    <p>This is mission work. A permanent, free, open resource for anyone who wants to understand and use Bitcoin. If it works, it works for 50 years. If it doesn't, free Bitcoin education still exists forever.</p>
+                    <p class="signature">&mdash; Marius, The Master Of Disaster</p>
+                </div>
+                <p class="timestamp reveal">October 2017 &rarr; March 2026 &mdash; 8 years of conviction.</p>
+            </div>
+        </section>
+
+        <!-- ═══ 3. WHAT'S COMING ═══ -->
+        <section>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="heading-lg">What's Being Built</h2>
+                    <p class="subtitle">Three tools. Zero compromise.</p>
+                </div>
+                <div class="pillars">
+                    <div class="pillar reveal">
+                        <div class="pillar-number">01</div>
+                        <h3 class="pillar-title">Education Hub</h3>
+                        <p class="pillar-text">21 structured guides from "What is Bitcoin?" to cold storage and multi-sig. Plain language, no jargon walls. CC BY-SA 4.0.</p>
+                    </div>
+                    <div class="pillar reveal">
+                        <div class="pillar-number">02</div>
+                        <h3 class="pillar-title">Swap Aggregator</h3>
+                        <p class="pillar-text">Compare real-time rates from 5 non-custodial providers. Your keys, your Bitcoin. No KYC required.</p>
+                    </div>
+                    <div class="pillar reveal">
+                        <div class="pillar-number">03</div>
+                        <h3 class="pillar-title">The Orange Pages</h3>
+                        <p class="pillar-text">250+ verified Bitcoin-only services across 12 categories. Wallets, exchanges, lawyers, developers &mdash; community vetted.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ 4. HOW WE BUILD ═══ -->
+        <section>
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="heading-lg">How We Build</h2>
+                </div>
+
+                <div class="terminal reveal">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">cookies:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">no cookies, no localStorage tracking</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">trackers:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">no analytics, no pixels, no fingerprinting</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">ads:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">no banners, no sponsored content</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">accounts:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">no sign-up, no user database</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">paywalls:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">every tool, guide, and listing is free</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">vc_funding:</span>
+                        <span class="terminal-value">0</span>
+                        <span class="terminal-desc">no investors, no exits, 50-year horizon</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">&gt;</span>
+                        <span class="terminal-key">data_sold:</span>
+                        <span class="terminal-value">never</span>
+                        <span class="terminal-desc">your visit is yours alone</span>
+                    </div>
+                </div>
+
+                <div class="freedoms reveal">
+                    <div class="freedom">
+                        <div class="freedom-number">0</div>
+                        <div>
+                            <div class="freedom-title">Free to use it</div>
+                            <div class="freedom-text">Every tool, every guide. No account needed.</div>
+                        </div>
+                    </div>
+                    <div class="freedom">
+                        <div class="freedom-number">1</div>
+                        <div>
+                            <div class="freedom-title">Free to study it</div>
+                            <div class="freedom-text">All source available. Nothing hidden.</div>
+                        </div>
+                    </div>
+                    <div class="freedom">
+                        <div class="freedom-number">2</div>
+                        <div>
+                            <div class="freedom-title">Free to change it</div>
+                            <div class="freedom-text">Translate, remix, improve. No permission needed.</div>
+                        </div>
+                    </div>
+                    <div class="freedom">
+                        <div class="freedom-number">3</div>
+                        <div>
+                            <div class="freedom-title">Free to share it</div>
+                            <div class="freedom-text">CC BY-SA 4.0. Maximum reach.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ 5. FOOTER ═══ -->
+    <footer>
+        <div class="container">
+            <p class="quote-text reveal">"Free forever. Transparent always. Built for 50 years."</p>
+            <p class="quote-sub">Built in public, for the people, sat by sat.</p>
+            <p class="quote-sub">Built to be minimal initially and extensible meaningfully.</p>
+            <div class="contact-row">
+                <a href="mailto:info@youbuybitcoin.com">info@youbuybitcoin.com</a>
+                <a href="https://x.com/YouBuyBitcoin" target="_blank" rel="noopener noreferrer">@YouBuyBitcoin on X</a>
+            </div>
+            <p class="footer-line">
+                Founded by Marius, The Master Of Disaster<br>
+                &copy; 2026 <span class="orange">YouBuyBitcoin.com</span> &middot; Since 2017. Forever.
+            </p>
+        </div>
+    </footer>
+
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+    <script>
+    (function(){
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('visible'); }); return; }
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
+        }, { threshold: 0.12 });
+        els.forEach(function(el){ obs.observe(el); });
+    })();
+    </script>
+</body>
+</html>
