@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouBuyBitcoin.com — Coming Soon | The Front Door to Bitcoin</title>
-    <meta name="description" content="YouBuyBitcoin.com — free Bitcoin education, non-custodial swaps, and 250+ verified Bitcoin services. No cookies. No ads. No VC. Built for 50 years. Launching soon.">
+    <meta name="description" content="YouBuyBitcoin.com — free Bitcoin education, non-custodial swaps, and 300+ verified Bitcoin services. No cookies. No ads. No VC. Built for 50 years. Launching soon.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://static.cloudflareinsights.com https://cloudflareinsights.com; form-action 'self'; base-uri 'self'; object-src 'none'; child-src 'none'">
     <meta name="robots" content="index, follow">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23121212'/><circle cx='32' cy='32' r='28' fill='%23F7931A'/><text x='32' y='44' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='36' fill='white'>&#x20BF;</text></svg>">
     <meta property="og:title" content="YouBuyBitcoin.com — Coming Soon">
-    <meta property="og:description" content="Free Bitcoin education. Non-custodial swaps. 250+ verified services. No cookies. No ads. No VC. Built for 50 years.">
+    <meta property="og:description" content="Free Bitcoin education. Non-custodial swaps. 300+ verified services. No cookies. No ads. No VC. Built for 50 years.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://youbuybitcoin.com/">
     <meta property="og:site_name" content="YouBuyBitcoin">
@@ -16,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@YouBuyBitcoin">
     <meta name="twitter:title" content="YouBuyBitcoin.com — Coming Soon">
-    <meta name="twitter:description" content="Free Bitcoin education. Non-custodial swaps. 250+ verified services. No VC. Built for 50 years.">
+    <meta name="twitter:description" content="Free Bitcoin education. Non-custodial swaps. 300+ verified services. No VC. Built for 50 years.">
     <meta name="twitter:image" content="https://youbuybitcoin.com/img/twitter-banner.png">
     <style>
         /* ── SELF-HOSTED FONTS (zero external requests) ── */
@@ -530,12 +531,28 @@
             .cursor::after { animation: none; }
         }
 
+        /* ── SKIP LINK ── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            padding: 0.75rem 1.5rem;
+            background: var(--btc-orange);
+            color: #0d0d0d;
+            font-weight: 700;
+            z-index: 10000;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
         /* ── NOSCRIPT FALLBACK ── */
         noscript .reveal { opacity: 1; transform: none; }
     </style>
 </head>
 <body>
-    <main>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <main id="main">
 
         <!-- ═══ 1. HERO ═══ -->
         <section class="hero">
@@ -596,7 +613,7 @@
                     <div class="pillar reveal">
                         <div class="pillar-number">03</div>
                         <h3 class="pillar-title">The Orange Pages</h3>
-                        <p class="pillar-text">250+ verified Bitcoin-only services across 12 categories. Wallets, exchanges, lawyers, developers &mdash; community vetted.</p>
+                        <p class="pillar-text">300+ verified Bitcoin-only services across 12 categories. Wallets, exchanges, lawyers, developers &mdash; community vetted.</p>
                     </div>
                 </div>
             </div>
@@ -707,15 +724,6 @@
     </footer>
 
     <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
-    <script>
-    (function(){
-        var els = document.querySelectorAll('.reveal');
-        if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('visible'); }); return; }
-        var obs = new IntersectionObserver(function(entries){
-            entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); } });
-        }, { threshold: 0.12 });
-        els.forEach(function(el){ obs.observe(el); });
-    })();
-    </script>
+    <script defer src="js/coming-soon.min.js"></script>
 </body>
 </html>
